@@ -1,0 +1,24 @@
+workflows:
+  android-workflow:
+    name: HeartLink Android Build
+    max_build_duration: 60
+    environment:
+      flutter: stable
+      java: 17
+    scripts:
+      - name: Setup project
+        script: |
+          cd $CM_BUILD_DIR
+          unzip -o heartlink_flutter.zip
+          cd heartlink_flutter
+          flutter pub get
+          flutter build apk --release --no-tree-shake-icons
+    artifacts:
+      - heartlink_flutter/build/app/outputs/flutter-apk/app-release.apk
+    publishing:
+      email:
+        recipients:
+          - aryanyadav12125@gmail.com
+        notify:
+          success: true
+          failure: true
