@@ -1,1 +1,25 @@
+name: heartlink
+description: Couple app with live drawing
+publish_to: 'none'
+version: 1.0.0+1
 
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  firebase_core: ^2.24.2
+  firebase_auth: ^4.16.0
+  firebase_database: ^10.4.9
+  awesome_notifications: ^0.9.3+1
+  google_fonts: ^6.1.0
+  screenshot: ^2.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
