@@ -26,9 +26,10 @@ jobs:
       - name: Build
         run: |
           flutter create --org com.heartlink --project-name heartlink_app /tmp/hl
-          cp lib/main.dart /tmp/hl/lib/main.dart
+          cp $GITHUB_WORKSPACE/lib/main.dart /tmp/hl/lib/main.dart
           mkdir -p /tmp/hl/android/app/src/main/kotlin/com/heartlink/heartlink_app
-          cp android/app/src/main/kotlin/com/heartlink/heartlink_app/MainActivity.kt /tmp/hl/android/app/src/main/kotlin/com/heartlink/heartlink_app/MainActivity.kt
+          cp $GITHUB_WORKSPACE/android/app/src/main/kotlin/com/heartlink/heartlink_app/MainActivity.kt /tmp/hl/android/app/src/main/kotlin/com/heartlink/heartlink_app/MainActivity.kt
+          cp $GITHUB_WORKSPACE/android/app/src/main/AndroidManifest.xml /tmp/hl/android/app/src/main/AndroidManifest.xml
           cd /tmp/hl
           printf 'name: heartlink_app\ndescription: HeartLink\npublish_to: none\nversion: 1.0.0+1\nenvironment:\n  sdk: ">=3.0.0 <4.0.0"\ndependencies:\n  flutter:\n    sdk: flutter\n  firebase_core: ^2.32.0\n  firebase_auth: ^4.20.0\n  firebase_database: ^10.5.7\n  google_fonts: ^6.2.0\ndev_dependencies:\n  flutter_test:\n    sdk: flutter\n  flutter_lints: ^3.0.2\nflutter:\n  uses-material-design: true\n' > pubspec.yaml
           flutter pub get
